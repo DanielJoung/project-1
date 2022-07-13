@@ -93,3 +93,99 @@ li a {
 .btn:hover {
     transform: scale(1.2);
 }
+
+.container {
+    position: relative;
+}
+
+.playerDeck1 {
+    position: absolute;
+    background-color: white;
+    height: 80px;
+    width: 60px;
+    bottom: 35px;
+    left: 520px;
+}
+.playerDeck2 {
+    position: absolute;
+    background-color: white;
+    height: 80px;
+    width: 60px;
+    bottom: 35px;
+    left: 590px;
+}
+
+.shareDeck1 {
+    position: absolute;
+    background-color: white;
+    height: 80px;
+    width: 60px;
+    bottom: 250px;
+    left: 420px;
+}
+
+.shareDeck2 {
+    position: absolute;
+    background-color: white;
+    height: 80px;
+    width: 60px;
+    bottom: 250px;
+    left: 490px;
+}
+
+.shareDeck3 {
+    position: absolute;
+    background-color: white;
+    height: 80px;
+    width: 60px;
+    bottom: 250px;
+    left: 560px;
+}
+
+.shareDeck4 {
+    position: absolute;
+    background-color: white;
+    height: 80px;
+    width: 60px;
+    bottom: 250px;
+    left: 630px;
+}
+
+.shareDeck5 {
+    position: absolute;
+    background-color: white;
+    height: 80px;
+    width: 60px;
+    bottom: 250px;
+    left: 700px;
+}
+
+.compDeck1 {
+    position: absolute;
+    background-color: black;
+    height: 80px;
+    width: 60px;
+    bottom: 465px;
+    left: 520px;
+}
+
+.compDeck2 {
+    position: absolute;
+    background-color: black;
+    height: 80px;
+    width: 60px;
+    bottom: 465px;
+    left: 590px;
+}
+
+
+
+.number {
+    text-align: center;
+    margin-top: 14px;
+}
+
+.shape-bot {
+    text-align: right;
+    margin-top: 8px;
+}
