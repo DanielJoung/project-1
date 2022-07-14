@@ -3,7 +3,7 @@
 }
 
 body {
-    background-color: burlywood;
+    background-color: bisque;
 }
 
 .home {
@@ -65,7 +65,6 @@ li a {
 }
 
 .blackjack-table {
-    margin-left: 80px ;
     margin-top: 5px;
     width: 1000px;
     transform: scaleY(-1)
@@ -75,7 +74,7 @@ li a {
 .btn-container {
     height: 40px;
     width: 80%;
-    margin-left: 400px;
+    margin-left: 320px;
 }
 
 .btn {
@@ -104,7 +103,7 @@ li a {
     height: 80px;
     width: 60px;
     bottom: 35px;
-    left: 520px;
+    left: 440px;
 }
 .playerDeck2 {
     position: absolute;
@@ -112,7 +111,7 @@ li a {
     height: 80px;
     width: 60px;
     bottom: 35px;
-    left: 590px;
+    left: 510px;
 }
 
 .shareDeck1 {
@@ -121,7 +120,7 @@ li a {
     height: 80px;
     width: 60px;
     bottom: 250px;
-    left: 420px;
+    left: 340px;
 }
 
 .shareDeck2 {
@@ -130,7 +129,7 @@ li a {
     height: 80px;
     width: 60px;
     bottom: 250px;
-    left: 490px;
+    left: 410px;
 }
 
 .shareDeck3 {
@@ -139,7 +138,7 @@ li a {
     height: 80px;
     width: 60px;
     bottom: 250px;
-    left: 560px;
+    left: 480px;
 }
 
 .shareDeck4 {
@@ -148,7 +147,7 @@ li a {
     height: 80px;
     width: 60px;
     bottom: 250px;
-    left: 630px;
+    left: 550px;
 }
 
 .shareDeck5 {
@@ -157,7 +156,7 @@ li a {
     height: 80px;
     width: 60px;
     bottom: 250px;
-    left: 700px;
+    left: 620px;
 }
 
 .compDeck1 {
@@ -166,7 +165,7 @@ li a {
     height: 80px;
     width: 60px;
     bottom: 465px;
-    left: 520px;
+    left: 440px;
 }
 
 .compDeck2 {
@@ -175,17 +174,99 @@ li a {
     height: 80px;
     width: 60px;
     bottom: 465px;
-    left: 590px;
+    left: 510px;
 }
-
-
 
 .number {
     text-align: center;
-    margin-top: 14px;
+    margin-top: 33px;
 }
 
-.shape-bot {
-    text-align: right;
-    margin-top: 8px;
+
+.money {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    left: 1010px;
+    bottom: 600px;
+}
+
+.goal_money {
+    background: green;
+    width: 200px;
+    height: 90px;
+    border-radius: 30%;
+    border: 5px double blue;
+}
+
+.goal_money p {
+    text-align: center;
+}
+
+#goal {
+    font-size: 30px;
+    letter-spacing: 5px;
+}
+
+#money {
+    padding-top: 2px;
+    font-size: 34px;
+    letter-spacing: 5px;
+    color: blanchedalmond;
+}
+
+.user_money {
+    margin-top: 20px;
+    background-color: green;
+    width: 200px;
+    height: 90px;
+    border-radius: 30%;
+    border: 5px double blue;
+}
+
+.user_money p {
+    text-align: center;
+}
+
+.user {
+    font-size: 30px;
+    letter-spacing: 5px;
+    color: black;
+}
+
+#user-money {
+    padding-top: 2px;
+    font-size: 34px;
+    letter-spacing: 5px;
+    color: blanchedalmond;
+}
+
+.pot_money {
+    margin-top: 20px;
+    background-color: green;
+    width: 200px;
+    height: 90px;
+    border-radius: 30%;
+    border: 5px double blue;
+}
+
+.pot_money p {
+    text-align: center;
+}
+
+.pot {
+    font-size: 30px;
+    letter-spacing: 3px;
+    color: blue;
+}
+
+#pot_money {
+    padding-top: 2px;
+    font-size: 34px;
+    letter-spacing: 5px;
+    color: blanchedalmond;
+}
+
+.hide-box {
+    visibility: hide;
 }

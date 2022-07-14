@@ -1,22 +1,134 @@
-const deck = {
-    number : ["2","3","4","5","6","7","8","9","10","J","Q","K","A"],
-    shape: ["❤️","♠","☘️","🔹"]
+const decks = {
+    rank: [2,3,4,5,6,7,8,9,10,"J","Q","K","A"],
+    suit: ["♥︎","♠","♣︎","♦︎"],
+    deckOfCard: [],
 }
 
-const navToggle = document.querySelector(".nav-toggle");
+for (let i in decks.rank) {
+    for (let j in decks.suit) {
+        decks.deckOfCard.push(decks.rank[i] + decks.suit[j])
+    }
+}
+
+
+// all the html code
 const linkContainer = document.querySelector(".link-container")
 const links = document.querySelector(".links")
-const randomNumber = Math.floor(Math.random() * deck.number.length)
-const randomShape = Math.floor(Math.random() * deck.shape.length)
+const deckContainer = document.querySelector(".container")
+const potMoney = document.querySelector("#pot_money")
+const userMoney = document.querySelector("#user-money")
+
+// make card div,p 
+const playerDeck1 = document.createElement("div")
+const playerDeck2 = document.createElement("div")
+const shareDeck1 = document.createElement("div")
+const shareDeck2 = document.createElement("div")
+const shareDeck3 = document.createElement("div")
+const shareDeck4 = document.createElement("div")
+const shareDeck5 = document.createElement("div")
+const compDeck1 = document.createElement("div")
+const compDeck2 = document.createElement("div")
+const number = document.createElement("p");
+playerDeck1.setAttribute("class","playerDeck1")
+playerDeck2.setAttribute("class","playerDeck2")
+shareDeck1.setAttribute("class","shareDeck1")
+shareDeck2.setAttribute("class","shareDeck2")
+shareDeck3.setAttribute("class","shareDeck3")
+shareDeck4.setAttribute("class","shareDeck4")
+shareDeck5.setAttribute("class","shareDeck5")
+compDeck1.setAttribute("class","compDeck1")
+compDeck2.setAttribute("class","compDeck2")
+number.setAttribute("class","number")
+// number.innerHTML = `${deckOfCard[0]}`
+// deckContainer.appendChild(playerDeck1)
+// playerDeck1.appendChild(number)
+// deckContainer.appendChild(playerDeck2)
+
+// game start 
+class Poker {
+    constructor(name="",pot) {
+        this.name = name;
+        this.money = 100;
+        this.pot = pot
+    }
+
+    start() {
+        // put a name
+        this.name = prompt("choose user name")
+        const user = document.querySelectorAll(".user");
+        user.forEach((element) => element.innerHTML = this.name)
+        // your money start
+        userMoney.innerHTML = `$${this.money}`
+        startBtn.remove()
+        // pot money start
+        potMoney.innerHTML = `$${this.pot}`
+    }
+
+    call() {
+        if (this.money === 0) {
+            alert(`${this.name} don't have enought money, want to use cash shop?`)
+        }else {
+            this.money -= 5;
+            this.pot += 10;
+            userMoney.innerHTML = `$${this.money}`
+            potMoney.innerHTML = `$${this.pot}`
+        }
+    }
+
+    raise() {
+        if(this.money === 0) {
+            alert(`${this.name} don't have enought money, want to use cash shop?`)
+        }else {
+            this.money -= 10;
+            this.pot += 20;
+            userMoney.innerHTML = `$${this.money}`
+            potMoney.innerHTML = `$${this.pot}`
+        }
+    }
+
+    fold() {
+        this.pot = 0
+        potMoney.innerHTML = `${this.pot}`
+    }
+
+}
+
+const poker = new Poker
+poker.pot = 0
 
 
+// all the button
+const navToggle = document.querySelector(".nav-toggle");
 navToggle.addEventListener("click", () => {
-    const containerHeight = linkContainer.getBoundingClientRect().height;
+    const containerHeight = linkContainer.getBoundingClientRect().height; // I found getBoundingClientRect() on Youtube.
     const linksHeight = links.getBoundingClientRect().height;
     if(containerHeight === 0) {
         linkContainer.style.height = `${linksHeight}px`
-        setTimeout(() => {linkContainer.style.height = 0},5000)
     }else {
         linkContainer.style.height = 0
     }
+})
+
+const startBtn = document.querySelector(".start") 
+startBtn.addEventListener("click", e => {
+    e.preventDefault();
+    poker.start()
+}) 
+
+const callBtn = document.querySelector(".call")
+callBtn.addEventListener("click",e => {
+    e.preventDefault()
+    poker.call()
+})
+
+const raiseBtn = document.querySelector(".raise")
+raiseBtn.addEventListener("click",e => {
+    e.preventDefault()
+    poker.raise()
+})
+
+const foldBtn = document.querySelector(".fold")
+foldBtn.addEventListener("click",e => {
+    e.preventDefault()
+    poker.fold()
 })
