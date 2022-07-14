@@ -76,17 +76,13 @@ class Poker {
             userMoney.innerHTML = `$${this.money}`
             potMoney.innerHTML = `$${this.pot}`
         }
-        if(deckContainer.children[6] !== shareDeck4){
+        if(deckContainer.children[8] !== shareDeck4){
             deckContainer.appendChild(shareDeck4)
-            shareDeck4.innerHTML = `${decks.deckOfCard[5]}`
-        }else if (deckContainer.children[7] !== shareDeck5){
+            shareDeck4.innerHTML = `${decks.deckOfCard[7]}`
+
+        }else if (deckContainer.children[9] !== shareDeck5){
             deckContainer.appendChild(shareDeck5)
-            shareDeck5.innerHTML = `${decks.deckOfCard[6]}`
-        }else {
-            deckContainer.appendChild(compDeck1)
-            compDeck1.innerHTML = `${decks.deckOfCard[7]}`
-            deckContainer.appendChild(compDeck2)
-            compDeck2.innerHTML = `${decks.deckOfCard[8]}`
+            shareDeck5.innerHTML = `${decks.deckOfCard[8]}`
         }
     }
 
@@ -99,59 +95,74 @@ class Poker {
             userMoney.innerHTML = `$${this.money}`
             potMoney.innerHTML = `$${this.pot}`
         }
-        if(deckContainer.children[6] !== shareDeck4){
+        if(deckContainer.children[8] !== shareDeck4){
             deckContainer.appendChild(shareDeck4)
-            shareDeck4.innerHTML = `${decks.deckOfCard[5]}`
-        }else if (deckContainer.children[7] !== shareDeck5){
+            shareDeck4.innerHTML = `${decks.deckOfCard[7]}`
+        }else if (deckContainer.children[9] !== shareDeck5){
             deckContainer.appendChild(shareDeck5)
-            shareDeck5.innerHTML = `${decks.deckOfCard[6]}`
-        }else {
-            deckContainer.appendChild(compDeck1)
-            compDeck1.innerHTML = `${decks.deckOfCard[7]}`
-            deckContainer.appendChild(compDeck2)
-            compDeck2.innerHTML = `${decks.deckOfCard[8]}`
+            shareDeck5.innerHTML = `${decks.deckOfCard[8]}`
         }
     }
 
     check() {
-        if(deckContainer.children[6] !== shareDeck4){
+        if(deckContainer.children[8] !== shareDeck4){
             deckContainer.appendChild(shareDeck4)
-            shareDeck4.innerHTML = `${decks.deckOfCard[5]}`
-        }else if (deckContainer.children[7] !== shareDeck5){
+            shareDeck4.innerHTML = `${decks.deckOfCard[7]}`
+        }else if (deckContainer.children[9] !== shareDeck5){
             deckContainer.appendChild(shareDeck5)
-            shareDeck5.innerHTML = `${decks.deckOfCard[6]}`
-        }else {
-            deckContainer.appendChild(compDeck1)
-            compDeck1.innerHTML = `${decks.deckOfCard[7]}`
-            deckContainer.appendChild(compDeck2)
-            compDeck2.innerHTML = `${decks.deckOfCard[8]}`
+            shareDeck5.innerHTML = `${decks.deckOfCard[8]}`
         }
     }
 
     fold() {
         this.pot = 0
         potMoney.innerHTML = `${this.pot}`
+        deckContainer.remove()
     }
 
     deal() {
-        deckContainer.appendChild(playerDeck1)
-        playerDeck1.innerHTML = `${decks.deckOfCard[0]}`
+        setTimeout(() => {
+            deckContainer.appendChild(playerDeck1)
+            playerDeck1.innerHTML = `${decks.deckOfCard[0]}`
+        },300)
 
-        deckContainer.appendChild(playerDeck2)
-        playerDeck2.innerHTML = `${decks.deckOfCard[1]}`
+        setTimeout(() => {
+            deckContainer.appendChild(playerDeck2)
+            playerDeck2.innerHTML = `${decks.deckOfCard[1]}`
+        },600)
 
-        deckContainer.appendChild(shareDeck1)
-        shareDeck1.innerHTML = `${decks.deckOfCard[2]}`
+        setTimeout(() => {
+            deckContainer.appendChild(compDeck1)
+            compDeck1.innerHTML = `${decks.deckOfCard[2]}`
+        },900)
 
-        deckContainer.appendChild(shareDeck2)
-        shareDeck2.innerHTML = `${decks.deckOfCard[3]}`
+        setTimeout(() => {
+            deckContainer.appendChild(compDeck2)
+            compDeck2.innerHTML = `${decks.deckOfCard[3]}`
+        },1200)
 
-        deckContainer.appendChild(shareDeck3)
-        shareDeck3.innerHTML = `${decks.deckOfCard[4]}`
+        setTimeout(() => {
+            deckContainer.appendChild(shareDeck1)
+            shareDeck1.innerHTML = `${decks.deckOfCard[4]}`
+        },1500)
+
+        setTimeout(() => {
+            deckContainer.appendChild(shareDeck2)
+            shareDeck2.innerHTML = `${decks.deckOfCard[5]}`
+        },1800)
+
+        setTimeout(() => {
+            deckContainer.appendChild(shareDeck3)
+            shareDeck3.innerHTML = `${decks.deckOfCard[6]}`
+        },2100)
     }
 
-
+    win() {
+        
+    }
 }
+
+
 
 const poker = new Poker
 poker.pot = 0
