@@ -65,7 +65,7 @@ li a {
 }
 
 .blackjack-table {
-    margin-top: 5px;
+    margin-top: 110px;
     width: 1000px;
     transform: scaleY(-1)
 }
@@ -199,14 +199,13 @@ li a {
     font-size: 30px;
 }
 
-
-
 .money {
     position: relative;
     width: 200px;
     height: 200px;
-    left: 1010px;
-    bottom: 600px;
+    left: 100px;
+    bottom: 713px;
+
 }
 
 .goal_money {
@@ -234,12 +233,14 @@ li a {
 }
 
 .user_money {
-    margin-top: 20px;
+    position: absolute;
     background-color: green;
     width: 200px;
     height: 90px;
     border-radius: 30%;
     border: 5px double blue;
+    left: 480px;
+    bottom: 100px;
 }
 
 .user_money p {
@@ -260,12 +261,15 @@ li a {
 }
 
 .pot_money {
+    position: absolute;
     margin-top: 20px;
     background-color: green;
     width: 200px;
     height: 90px;
     border-radius: 30%;
     border: 5px double blue;
+    left: 240px;
+    bottom: 100px;
 }
 
 .pot_money p {
