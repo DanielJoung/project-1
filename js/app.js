@@ -11,6 +11,7 @@ for (let i in decks.rank) {
 }
 
 decks.deckOfCard.sort(() => Math.random() - 0.5)
+console.log(decks.deckOfCard)
 
 
 // all the html code
@@ -53,10 +54,14 @@ class Poker {
         // put a name
         this.name = prompt("choose user name")
         const user = document.querySelectorAll(".user");
-        user.forEach((element) => element.innerHTML = this.name)
+        user.innerHTML = this.name
         // your money start
         userMoney.innerHTML = `$${this.money}`
         startBtn.remove()
+        this.money -= 5
+        this.pot += 10
+        userMoney.innerHTML = `$${this.money}`
+        potMoney.innerHTML = `$${this.pot}`
         // pot money start
         potMoney.innerHTML = `$${this.pot}`
         this.deal()
@@ -84,6 +89,12 @@ class Poker {
             deckContainer.appendChild(shareDeck5)
             shareDeck5.innerHTML = `${decks.deckOfCard[8]}`
         }
+        if (deckContainer.children[9] === shareDeck5) {
+            compDeck1.innerHTML = `${decks.deckOfCard[2]}`
+            compDeck2.innerHTML = `${decks.deckOfCard[3]}`
+            compDeck1.classList.add("deck_bg")
+            compDeck2.classList.add("deck_bg")
+        }
     }
 
     raise() {
@@ -102,6 +113,12 @@ class Poker {
             deckContainer.appendChild(shareDeck5)
             shareDeck5.innerHTML = `${decks.deckOfCard[8]}`
         }
+        if (deckContainer.children[9] === shareDeck5) {
+            compDeck1.innerHTML = `${decks.deckOfCard[2]}`
+            compDeck2.innerHTML = `${decks.deckOfCard[3]}`
+            compDeck1.classList.add("deck_bg")
+            compDeck2.classList.add("deck_bg")
+        }
     }
 
     check() {
@@ -111,6 +128,12 @@ class Poker {
         }else if (deckContainer.children[9] !== shareDeck5){
             deckContainer.appendChild(shareDeck5)
             shareDeck5.innerHTML = `${decks.deckOfCard[8]}`
+        }
+        if (deckContainer.children[9] === shareDeck5) {
+            compDeck1.innerHTML = `${decks.deckOfCard[2]}`
+            compDeck2.innerHTML = `${decks.deckOfCard[3]}`
+            compDeck1.classList.add("deck_bg")
+            compDeck2.classList.add("deck_bg")
         }
     }
 
@@ -133,12 +156,12 @@ class Poker {
 
         setTimeout(() => {
             deckContainer.appendChild(compDeck1)
-            compDeck1.innerHTML = `${decks.deckOfCard[2]}`
+
         },900)
 
         setTimeout(() => {
             deckContainer.appendChild(compDeck2)
-            compDeck2.innerHTML = `${decks.deckOfCard[3]}`
+            
         },1200)
 
         setTimeout(() => {

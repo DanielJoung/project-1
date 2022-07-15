@@ -110,6 +110,7 @@ li a {
     left: 440px;
     text-align: center;
     font-size: 30px;
+    line-height: 80px;
 }
 .playerDeck2 {
     position: absolute;
@@ -120,6 +121,7 @@ li a {
     left: 510px;
     text-align: center;
     font-size: 30px;
+    line-height: 80px;
 }
 
 .shareDeck1 {
@@ -131,6 +133,7 @@ li a {
     left: 340px;
     text-align: center;
     font-size: 30px;
+    line-height: 80px;
 }
 
 .shareDeck2 {
@@ -142,6 +145,7 @@ li a {
     left: 410px;
     text-align: center;
     font-size: 30px;
+    line-height: 80px;
 }
 
 .shareDeck3 {
@@ -153,6 +157,7 @@ li a {
     left: 480px;
     text-align: center;
     font-size: 30px;
+    line-height: 80px;
 }
 
 .shareDeck4 {
@@ -164,6 +169,7 @@ li a {
     left: 550px;
     text-align: center;
     font-size: 30px;
+    line-height: 80px;
 }
 
 .shareDeck5 {
@@ -175,6 +181,7 @@ li a {
     left: 620px;
     text-align: center;
     font-size: 30px;
+    line-height: 80px;
 }
 
 .compDeck1 {
@@ -186,6 +193,7 @@ li a {
     left: 440px;
     text-align: center;
     font-size: 30px;
+    line-height: 80px;
 }
 
 .compDeck2 {
@@ -197,6 +205,7 @@ li a {
     left: 510px;
     text-align: center;
     font-size: 30px;
+    line-height: 80px;
 }
 
 .money {
@@ -291,4 +300,8 @@ li a {
 
 .hide-box {
     visibility: hide;
+}
+
+.deck_bg {
+    background-color: lightcoral;
 }
