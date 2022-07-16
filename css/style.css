@@ -74,7 +74,7 @@ li a {
 .btn-container {
     height: 40px;
     width: 80%;
-    margin-left: 320px;
+    margin-left: 350px;
 }
 
 .btn {
@@ -99,120 +99,121 @@ li a {
 
 .container {
     position: relative;
+    margin-left: 20px;
 }
 
 .playerDeck1 {
     position: absolute;
     background-color: lightcoral;
-    height: 80px;
-    width: 60px;
-    bottom: 35px;
+    height: 100px;
+    width: 80px;
+    bottom: 25px;
     left: 440px;
     text-align: center;
-    font-size: 30px;
-    line-height: 80px;
+    font-size: 36px;
+    line-height: 100px;
 }
 .playerDeck2 {
     position: absolute;
     background-color: lightcoral;
-    height: 80px;
-    width: 60px;
-    bottom: 35px;
-    left: 510px;
+    height: 100px;
+    width: 80px;
+    bottom: 25px;
+    left: 530px;
     text-align: center;
-    font-size: 30px;
-    line-height: 80px;
+    font-size: 36px;
+    line-height: 100px;
 }
 
 .shareDeck1 {
     position: absolute;
     background-color: lightcoral;
-    height: 80px;
-    width: 60px;
-    bottom: 250px;
-    left: 340px;
+    height: 100px;
+    width: 80px;
+    bottom: 260px;
+    left: 290px;
     text-align: center;
-    font-size: 30px;
-    line-height: 80px;
+    font-size: 36px;
+    line-height: 100px;
 }
 
 .shareDeck2 {
     position: absolute;
     background-color: lightcoral;
-    height: 80px;
-    width: 60px;
-    bottom: 250px;
-    left: 410px;
+    height: 100px;
+    width: 80px;
+    bottom: 260px;
+    left: 380px;
     text-align: center;
-    font-size: 30px;
-    line-height: 80px;
+    font-size: 36px;
+    line-height: 100px;
 }
 
 .shareDeck3 {
     position: absolute;
     background-color: lightcoral;
-    height: 80px;
-    width: 60px;
-    bottom: 250px;
-    left: 480px;
+    height: 100px;
+    width: 80px;
+    bottom: 260px;
+    left: 470px;
     text-align: center;
-    font-size: 30px;
-    line-height: 80px;
+    font-size: 36px;
+    line-height: 100px;
 }
 
 .shareDeck4 {
     position: absolute;
     background-color: lightcoral;
-    height: 80px;
-    width: 60px;
-    bottom: 250px;
-    left: 550px;
+    height: 100px;
+    width: 80px;
+    bottom: 260px;
+    left: 560px;
     text-align: center;
-    font-size: 30px;
-    line-height: 80px;
+    font-size: 36px;
+    line-height: 100px;
 }
 
 .shareDeck5 {
     position: absolute;
     background-color: lightcoral;
-    height: 80px;
-    width: 60px;
-    bottom: 250px;
-    left: 620px;
+    height: 100px;
+    width: 80px;
+    bottom: 260px;
+    left: 650px;
     text-align: center;
-    font-size: 30px;
-    line-height: 80px;
+    font-size: 36px;
+    line-height: 100px;
 }
 
 .compDeck1 {
     position: absolute;
     background-color: black;
-    height: 80px;
-    width: 60px;
-    bottom: 465px;
-    left: 440px;
+    height: 100px;
+    width: 80px;
+    bottom: 460px;
+    left: 420px;
     text-align: center;
-    font-size: 30px;
-    line-height: 80px;
+    font-size: 36px;
+    line-height: 100px;
 }
 
 .compDeck2 {
     position: absolute;
     background-color: black;
-    height: 80px;
-    width: 60px;
-    bottom: 465px;
+    height: 100px;
+    width: 80px;
+    bottom: 460px;
     left: 510px;
     text-align: center;
-    font-size: 30px;
-    line-height: 80px;
+    font-size: 36px;
+    line-height: 100px;
 }
 
 .money {
     position: relative;
     width: 200px;
     height: 200px;
-    left: 100px;
+    left: 150px;
     bottom: 713px;
 
 }
