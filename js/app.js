@@ -5,7 +5,8 @@ const deckContainer = document.querySelector(".container")
 const potMoney = document.querySelector("#pot_money")
 const userMoney = document.querySelector("#user-money")
 const btn = document.querySelector(".btn-container")
-// make card div,p 
+
+// make card box div,p 
 const randomCards = Math.floor(Math.random() * 53) 
 const playerDeck1 = document.createElement("div")
 const playerDeck2 = document.createElement("div")
@@ -26,6 +27,7 @@ shareDeck5.setAttribute("class","shareDeck5")
 compDeck1.setAttribute("class","compDeck1")
 compDeck2.setAttribute("class","compDeck2")
 
+
 // game start 
 class Poker {
     constructor(name="",pot) {
@@ -41,13 +43,6 @@ class Poker {
             }
         }
         this.shuffle()
-        this.pokerHands = {
-            pair: ["22","33","44","55","66","77","88","99","TT","JJ","QQ","KK","AA"],
-            triple: ["222","333","444","555","666","777","888","999","TTT","JJJ","QQQ","KKK","AAA"],
-            poker: ["2222","3333","4444","5555","6666","7777","8888","9999","TTTT","JJJJ","QQQQ","KKKK","AAAA"],
-            flush: ["♥︎♥︎♥︎♥︎♥︎","♠♠♠♠♠","♣︎♣︎♣︎♣︎♣︎","♦︎♦︎♦︎♦︎♦︎"],
-            straight: ["23456","34567","45678","56789","6789T","789TJ","89TJQ","9TJQK","TJQKA"]
-        }
     }
 
     shuffle() {
@@ -88,7 +83,6 @@ class Poker {
         btn.appendChild(raiseBtn)
         btn.appendChild(checkBtn)
         btn.appendChild(foldBtn)
-
     }
 
     call() {
@@ -215,7 +209,6 @@ class Poker {
             shareDeck3.innerHTML = `${this.deck[6]}`
         },2100)
     }
-
     playerHand() {
         const sortHandArr = []
         const player_Hand = [this.deck[0],this.deck[1],this.deck[4],this.deck[5],this.deck[6],this.deck[7],this.deck[8]]
@@ -343,4 +336,112 @@ foldBtn.remove()
 
 
 
+
+function PokerHand() {
+    //get ranks of hands
+
+    const player_Hand = [poker.deck[0],poker.deck[1],poker.deck[4],poker.deck[5],poker.deck[6],poker.deck[7],poker.deck[8]];
+
+    let rankArray = [];
+    let suitArray = [];
+
+    function sorted() {
+        let sortedHand = [];
+        for (let i = 0; i < poker.rank.length; i++) {
+            for (let j = 0; j < player_Hand.length; j++) {
+                if (poker.rank[i] === player_Hand[j].charAt(0)) {
+                sortedHand.push(player_Hand[j]);
+                }
+            }
+        }
+        return sortedHand;
+    }
+
+    let sortedHandOne = sorted(player_Hand);
+
+    function suitAndRank(sortedHandOne) {
+        console.log(sorted);
+        for (let i = 0; i < sortedHandOne.length; i++) {
+        let sted = sortedHandOne;
+        rankArray.push(sted[i].charAt(0));
+        suitArray.push(sted[i].charAt(1));
+        }
+    }
+
+    function countSuites(suitArray) {
+        let suitCount = {};
+        suitArray.forEach(function(x) {
+        suitCount[x] = (suitCount[x] || 0) + 1;
+        });
+        return suitCount;
+    }
+
+    function countRanks(rankArray) {
+        let rankCount = {};
+        rankArray.forEach(function(x) {
+        rankCount[x] = (rankCount[x] || 0) + 1;
+        });
+        return rankCount;
+    }
+
+    function isFlush() {
+        let cS = countSuites(suitArray);
+        if (Object.keys(cS).find(key => cS[key] === 5)) {
+        return true;
+        } else {
+        return false;
+        }
+    }
+
+    function isStraight() {
+        let index = poker.rank.indexOf(rankArray[0]);
+        let ref = poker.rank.slice(index, index + 5).join("");
+        let section = rankArray.slice(0).join("");
+        if (section === "10JQKA" && section === ref) {
+        return "ROYALSTRAIGHT";
+        } else if (section === "A2345" || section === ref) {
+        return "STRAIGHT";
+        } else {
+        return "FALSE";
+        }
+    }
+
+    function pairs() {
+        let rS = countRanks(rankArray);
+        return Object.keys(rS).filter(key => rS[key] === 2).length;
+    }
+
+    function whichHand() {
+        let rS = countRanks(rankArray);
+        if (isFlush() === true && isStraight() === "ROYALSTRAIGHT") {
+            console.log("Royal Flush");
+        } else if (isFlush() === true && isStraight() === "STRAIGHT") {
+            console.log("Straight Flush");
+        } else if (Object.keys(rS).find(key => rS[key] === 4)) {
+            console.log("Four of a Kind");
+        } else if (Object.keys(rS).find(key => rS[key] === 3) && pairs() === 1) {
+            console.log("Full House");
+        } else if (isFlush() /*First issue*/ === true) {
+            console.log("Flush");
+        } else if (isStraight() /*Second issue*/ === "STRAIGHT") {
+            console.log("Straight");
+        } else if (Object.keys(rS).find(key => rS[key] === 3)) {
+            console.log("Three of a Kind");
+        } else if (pairs() === 2) {
+            console.log("Two Pair");
+        } else if (pairs() === 1) {
+            console.log("Pair");
+        } else {
+            console.log("High Card", rankArray[rankArray.length - 1]);
+        }
+    }
+
+    return whichHand();
+}
+
+  // const hands = ['Royal flush', 'Straight flush', 'Four of a kind', 'Full house',
+  //     'Flush', 'Straight', 'Three of a kind', 'Two pairs', 'Pair', 'High card']
+  //     //compare ranks of hands and return results
+
+PokerHand();
 
