@@ -306,3 +306,17 @@ li a {
 .deck_bg {
     background-color: lightcoral;
 }
+
+.score {
+    position: absolute;
+    left: 450px;
+    bottom: 50px;
+    font-size: 32px;
+    text-transform: capitalize;
+}
+
+.compScore > p {
+    font-size: 30px;
+    letter-spacing: 5px;
+    color: black;
+}
