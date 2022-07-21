@@ -390,10 +390,35 @@ function PokerRank() {
 function result() {
     if (user_hand.innerHTML.slice(2) === "Pairs") {
         if (comp_hand.innerHTML.slice(2) === "Pairs") {
-            if (parseInt(user_hand.innerHTML[0]) === parseInt(comp_hand.innerHTML[0])) {
-                alert("Its tie")
-            }else if (parseInt(user_hand.innerHTML[0]) === parseInt(comp_hand.innerHTML[0])) {
-
+            if (parseInt(user_hand.innerHTML[0]) === NaN) {
+                if(parseInt(comp_hand.innerHTML[0]) !== NaN) {
+                    poker.money += poker.pot
+                    poker.pot = 0
+                    userMoney.innerHTML = `$${poker.money}`
+                    potMoney.innerHTML = `$${poker.pot}`
+                }else if (parseInt(comp_hand.innerHTML[0]) === NaN) {
+                    if (user_hand.innerHTML[0] === "J") {
+                        if(comp_hand.innerHTML[0] === "Q" || comp_hand.innerHTML[0] === "K" || comp_hand.innerHTML[0] === "A") {
+                            poker.pot = 0 
+                            potMoney.innerHTML = `$${poker.pot}`
+                        }
+                    }else if (user_hand.innerHTML[0] === "Q") {
+                        if (comp_hand.innerHTML[0] === "K" || comp_hand.innerHTML[0] === "A") {
+                            poker.pot = 0 
+                            potMoney.innerHTML = `$${poker.pot}`
+                        }
+                    }else if (user_hand.innerHTML[0] === "K") {
+                        if (comp_hand.innerHTML[0] === "A") {
+                            poker.pot = 0 
+                            potMoney.innerHTML = `$${poker.pot}`
+                        }
+                    }else {
+                        poker.money += poker.pot
+                        poker.pot = 0
+                        userMoney.innerHTML = `$${poker.money}`
+                        potMoney.innerHTML = `$${poker.pot}`
+                    }
+                }
             }
         }
     }
@@ -460,8 +485,6 @@ openBtn.addEventListener("click", e => {
     console.log(typeof(parseInt(user_hand.innerHTML[0])))
     poker.shuffle()
     setTimeout(() => {poker.newGame()},4000)
-
-    
 })
 
 callBtn.remove()
@@ -469,6 +492,3 @@ raiseBtn.remove()
 checkBtn.remove()
 foldBtn.remove()
 openBtn.remove()
-
-
-let a = "a"
