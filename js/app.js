@@ -255,10 +255,6 @@ class Poker {
 
 const poker = new Poker
 poker.pot = 0
-console.log(poker.deck)
-// const restart = new Poker
-// restart.shuffle()
-
 
 // poker hand I didn't totally make it. I google it ("https://stackoverflow.com/questions/53628131/ranking-poker-hand")
 // and fix it, try to understand how it works. 
@@ -268,8 +264,6 @@ function PokerRank() {
     let userSuitArray = []
     let compRankArray = []
     let compSuitArray = []
-    // let userDeck = [poker.deck[0],poker.deck[1],poker.deck[4],poker.deck[5],poker.deck[6],poker.deck[7],poker.deck[8]]
-    // let compDeck = [poker.deck[2],poker.deck[3],poker.deck[4],poker.deck[5],poker.deck[6],poker.deck[7],poker.deck[8]]
     poker.userDeck
     poker.compDeck
     
@@ -309,9 +303,7 @@ function PokerRank() {
     }
     
     countSuites(userSuitArray)
-    // console.log(countSuites(userSuitArray))
     countSuites(compSuitArray)
-    // console.log(countSuites(compSuitArray))
     
     function countRanks(rankArray) {
         let rankCount = {}
@@ -321,9 +313,7 @@ function PokerRank() {
         return rankCount
     }
     countRanks(userRankArray)
-    // console.log(countRanks(userRankArray))
     countRanks(compRankArray)
-    // console.log(countRanks(compRankArray))
     
     function isFlush(suitArray) {
         let cS = countSuites(suitArray)
@@ -335,18 +325,12 @@ function PokerRank() {
         }
     }
     isFlush(userSuitArray)
-    // console.log(isFlush(userSuitArray))
     isFlush(compSuitArray)
-    // console.log(isFlush(compSuitArray))
-    
+
     function isStraight(rankArray) {
-        console.log(rankArray)
         let index = ranks.indexOf(rankArray[0])
-        console.log(index)
         let ref = ranks.slice(index, index + 5).join("")
-        console.log(ref)
         let section = rankArray.slice(0).join("")
-        console.log(section)
         if (section === "TJQKA" && section === ref) {
             return "ROYALSTRAIGHT"
         } else if (section === "A2345" || section === ref) {
@@ -355,20 +339,17 @@ function PokerRank() {
             return "FALSE"
         }
     }
+
     isStraight(userRankArray)
-    // console.log(isStraight(userRankArray))
     isStraight(compRankArray)
-    // console.log(isStraight(compRankArray))
-    
-    
+
     function pairs(rankArray) {
         let rS = countRanks(rankArray)
         return Object.keys(rS).filter(key => rS[key] === 2).length
     }
     pairs(userRankArray)
-    // console.log(pairs(userRankArray))
     pairs(compRankArray)
-    // console.log(pairs(compRankArray))
+
     
     function triple(rankArray) {
         let rS = countRanks(rankArray)
@@ -380,47 +361,44 @@ function PokerRank() {
     function whichHand(rankArray,suitArray,hand) {
         let rS = countRanks(rankArray)
         let cS = countSuites(suitArray)
-        console.log(rankArray)
         if (isFlush(suitArray) === true && isStraight(rankArray) === "ROYALSTRAIGHT") {
             hand.innerHTML = `: Royal Flush`
         } else if (isFlush(suitArray) === true && isStraight(rankArray) === "STRAIGHT") {
             hand.innerHTML = `: Straight Flush`
         } else if (Object.keys(rS).find(key => rS[key] === 4)) {
-            hand.innerHTML = `: ${Object.keys(rS).find(key => rS[key] === 4)} Four Of a Kind `
+            hand.innerHTML = `${Object.keys(rS).find(key => rS[key] === 4)} Four Of a Kind `
         } else if (triple(rankArray) && pairs(rankArray) === 1) {
-            hand.innerHTML = `: ${Object.keys(rS).find(key => rS[key] === 3)} Full House`
+            hand.innerHTML = `${Object.keys(rS).find(key => rS[key] === 3)} Full House`
         } else if (isFlush(suitArray) /*First issue*/ === true) {
-            hand.innerHTML = `: ${Object.keys(cS).find(key => cS[key] === 5)} Flush`
+            hand.innerHTML = `${Object.keys(cS).find(key => cS[key] === 5)} Flush`
         } else if (isStraight(rankArray) /*Second issue*/ === "STRAIGHT") {
-            hand.innerHTML = `: ${rankArray.slice(0).join("")} Straight `
+            hand.innerHTML = `${rankArray.slice(0).join("")} Straight `
         } else if (triple(rankArray)) {
-            hand.innerHTML = `: ${Object.keys(rS).filter(key => rS[key] === 3)} Three Of a Kind`
+            hand.innerHTML = `${Object.keys(rS).filter(key => rS[key] === 3)} Three Of a Kind`
         } else if (pairs(rankArray) === 2) {
-            hand.innerHTML = `: ${Object.keys(rS).filter(key => rS[key] === 2)} Two Pairs `
+            hand.innerHTML = `${Object.keys(rS).filter(key => rS[key] === 2)} Two Pairs `
         } else if (pairs(rankArray) === 1) {
-            hand.innerHTML = `: ${Object.keys(rS).filter(key => rS[key] === 2)} Pairs `
+            hand.innerHTML = `${Object.keys(rS).filter(key => rS[key] === 2)} Pairs `
         } else {
-            hand.innerHTML = `: ${rankArray[rankArray.length - 1]} High Card `
+            hand.innerHTML = `${rankArray[rankArray.length - 1]} High Card `
         }
     }
     whichHand(compRankArray,compSuitArray,comp_hand)
     whichHand(userRankArray,userSuitArray,user_hand)
-
-    function win() {
-        
-    }
 }
 
-// function restart() {
-//     console.log(poker.userDeck)
-//     userRankArray = []
-//     userSuitArray = []
-//     compRankArray = []
-//     compSuitArray = []
-//     poker.userDeck = []
-//     console.log(poker.userDeck)
-//     poker.compDeck = []
-// }
+function result() {
+    if (user_hand.innerHTML.slice(2) === "Pairs") {
+        if (comp_hand.innerHTML.slice(2) === "Pairs") {
+            if (parseInt(user_hand.innerHTML[0]) === parseInt(comp_hand.innerHTML[0])) {
+                alert("Its tie")
+            }else if (parseInt(user_hand.innerHTML[0]) === parseInt(comp_hand.innerHTML[0])) {
+
+            }
+        }
+    }
+    console.log(user_hand.innerHTML.slice(2))
+}
 
 // all the button
 const navToggle = document.querySelector(".nav-toggle");
@@ -439,7 +417,7 @@ const startBtn = document.querySelector(".start")
 startBtn.addEventListener("click", e => {
     e.preventDefault();
     poker.start()
-    
+
 }) 
 
 const callBtn = document.querySelector(".call")
@@ -478,10 +456,10 @@ openBtn.addEventListener("click", e => {
     poker.openCard()
     foldBtn.remove()
     PokerRank()
+    // setTimeout(()=>{result()},1000)
+    console.log(typeof(parseInt(user_hand.innerHTML[0])))
     poker.shuffle()
-    // restart.shuffle()
-    // restart()
-    setTimeout(() => {poker.newGame()},2000)
+    setTimeout(() => {poker.newGame()},4000)
 
     
 })
@@ -491,3 +469,6 @@ raiseBtn.remove()
 checkBtn.remove()
 foldBtn.remove()
 openBtn.remove()
+
+
+let a = "a"

@@ -321,12 +321,10 @@ li a {
 }
 
 .compScore {
-    display: flex;
     color: lightsalmon;
     margin-top: 5px;
 }
 
 .userScore {
-    display: flex;
     color: blue;
 }
