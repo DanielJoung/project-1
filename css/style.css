@@ -260,7 +260,7 @@ li a {
 .user {
     font-size: 30px;
     letter-spacing: 5px;
-    color: black;
+    color: blue;
 }
 
 #user-money {
@@ -289,7 +289,7 @@ li a {
 .pot {
     font-size: 30px;
     letter-spacing: 3px;
-    color: blue;
+    color: black;
 }
 
 #pot_money {
@@ -309,14 +309,24 @@ li a {
 
 .score {
     position: absolute;
-    left: 450px;
-    bottom: 50px;
+    left: 30px;
+    bottom: 200px;
     font-size: 32px;
     text-transform: capitalize;
 }
 
 .compScore > p {
-    font-size: 30px;
     letter-spacing: 5px;
-    color: black;
+    color: lightsalmon;
+}
+
+.compScore {
+    display: flex;
+    color: lightsalmon;
+    margin-top: 5px;
+}
+
+.userScore {
+    display: flex;
+    color: blue;
 }
