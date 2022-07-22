@@ -387,6 +387,7 @@ function PokerRank() {
     whichHand(userRankArray,userSuitArray,user_hand)
 }
 
+
 function result() {
     if (user_hand.innerHTML.slice(2) === "Pairs") {
         if (comp_hand.innerHTML.slice(2) === "Pairs") {
@@ -422,7 +423,156 @@ function result() {
             }
         }
     }
-    console.log(user_hand.innerHTML.slice(2))
+}
+
+function convertWord(letter) {
+    if (letter === "2") return 2
+    if (letter === "3") return 3
+    if (letter === "4") return 4
+    if (letter === "5") return 5
+    if (letter === "6") return 6
+    if (letter === "7") return 7
+    if (letter === "8") return 8
+    if (letter === "9") return 9
+    if (letter === "T") return 10
+    if (letter === "J") return 11
+    if (letter === "Q") return 12
+    if (letter === "K") return 13
+    if (letter ==="A") return 14
+}
+
+function result() {
+    if (user_hand.innerHTML === comp_hand.innerHTML) {
+        alert("It's tie, play next game")
+    }
+    if (user_hand.innerHTML.slice(2) === "High Card") {
+        if (comp_hand.innerHTML.slice(2) === "High Card") {
+            if (convertWord(user_hand.innerHTML[0]) > convertWord(comp_hand.innerHTML[0])) {
+                poker.money += poker.pot
+                poker.pot = 0 
+                userMoney.innerHTML = `$${poker.money}`
+                potMoney.innerHTML = `$${poker.pot}`
+            }else if (convertWord(user_hand.innerHTML[0]) < convertWord(comp_hand.innerHTML[0])) {
+                poker.pot = 0
+                potMoney.innerHTML = `$${poker.pot}`
+            }
+        }else if (comp_hand.innerHTML.slice(2) === "Pairs") {
+            poker.pot = 0
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(4) === "Two Pairs") {
+            poker.pot = 0
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Three Of A Kind") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Straight") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Flush") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Full House") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Four Of A Kind") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Straight Flush") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Royal Flush") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }
+    }
+    
+    if (user_hand.innerHTML.slice(2) === "Pairs") {
+        if (comp_hand.innerHTML.slice(2) === "High Card") {
+            poker.money += poker.pot
+            poker.pot = 0 
+            userMoney.innerHTML = `$${poker.money}`
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Pairs") {
+            if (convertWord(user_hand.innerHTML[0]) < convertWord(comp_hand.innerHTML[0])) {
+                poker.pot = 0 
+                potMoney.innerHTML = `$${poker.pot}`
+            }
+            }else if (convertWord(user_hand.innerHTML[0]) > convertWord(comp_hand.innerHTML[0])) {
+                poker.money += poker.pot
+                poker.pot = 0 
+                userMoney.innerHTML = `$${poker.money}`
+                potMoney.innerHTML = `$${poker.pot}`
+            }
+        }else if (comp_hand.innerHTML.slice(4) === "Two Pairs") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Three Of A Kind") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Straight") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Flush") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Full House") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Four Of A Kind") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Straight Flush") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Royal Flush") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }
+
+    if (user_hand.innerHTML.slice(4) === "Two Pairs") {
+        if (comp_hand.innerHTML.slice(2) === "High Card") {
+            poker.money += poker.pot
+            poker.pot = 0 
+            userMoney.innerHTML = `$${poker.money}`
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Pairs") {
+            poker.money += poker.pot
+            poker.pot = 0 
+            userMoney.innerHTML = `$${poker.money}`
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(4) === "Two Pairs") {
+            if (convertWord(user_hand.innerHTML[2]) > convertWord(comp_hand.innerHTML[2])) {
+                poker.money += poker.pot
+                poker.pot = 0 
+                userMoney.innerHTML = `$${poker.money}`
+                potMoney.innerHTML = `$${poker.pot}`
+            }else if (convertWord(user_hand.innerHTML[2]) < convertWord(comp_hand.innerHTML[2])) {
+                poker.pot = 0 
+                potMoney.innerHTML = `$${poker.pot}`
+            }
+        }else if (comp_hand.innerHTML.slice(2) === "Three Of A Kind") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Straight") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Flush") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Full House") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Four Of A Kind") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Straight Flush") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }else if (comp_hand.innerHTML.slice(2) === "Royal Flush") {
+            poker.pot = 0 
+            potMoney.innerHTML = `$${poker.pot}`
+        }
+    }
 }
 
 // all the button
@@ -482,7 +632,9 @@ openBtn.addEventListener("click", e => {
     foldBtn.remove()
     PokerRank()
     // setTimeout(()=>{result()},1000)
-    console.log(typeof(parseInt(user_hand.innerHTML[0])))
+    result()
+    console.log(convertWord(user_hand.innerHTML[0]))
+    console.log(convertWord(comp_hand.innerHTML[0]))
     poker.shuffle()
     setTimeout(() => {poker.newGame()},4000)
 })
