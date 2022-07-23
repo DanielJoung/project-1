@@ -78,9 +78,10 @@ class Poker {
         user_hand.innerHTML = ""
         comp_hand.innerHTML = ""
         startBtn.remove()
-
         userMoney.innerHTML = `$${this.money}`
         potMoney.innerHTML = `$${this.pot}`
+        compDeck1.innerHTML = ""
+        compDeck2.innerHTML = ""
 
         // pot money start
         potMoney.innerHTML = `$${this.pot}`
@@ -216,6 +217,7 @@ class Poker {
     }
 
     deal() {
+
         setTimeout(() => {
             deckContainer.appendChild(playerDeck1)
             playerDeck1.innerHTML = `${this.deck[0]}`
