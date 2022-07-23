@@ -1,6 +1,8 @@
 # project-1
 
-[texas holdem](https://media.git.generalassemb.ly/user/42802/files/f88d6f6a-f20f-42c9-afaa-91266f6b518f)
+[texas holdem] (project1.png)
+<img src="project1.png">
+
 MVP Goals
 
 - User will start with $100
