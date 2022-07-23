@@ -309,8 +309,8 @@ li a {
 
 .score {
     position: absolute;
-    left: 30px;
-    bottom: 200px;
+    left: 3%;
+    bottom: 22%;
     font-size: 32px;
     text-transform: capitalize;
 }

@@ -618,3 +618,40 @@ raiseBtn.remove()
 checkBtn.remove()
 foldBtn.remove()
 openBtn.remove()
+
+
+
+
+// const rank = ["2","3","4","5","6","7","8","9","T","J","Q","K","A"]
+// const suit = ["♥︎","♠","♣︎","♦︎"]
+// rank.shift()
+// let deck = []
+
+// let userDeck;
+// let compDeck;
+
+// for (let i in rank) {
+//     for (let j in suit) {
+//         deck.push(rank[i] + suit[j])
+//     }
+// }
+
+// function shuffle() {
+//     if (deck.length > 8) {
+//         for (let i in deck) {
+//             let j = Math.floor(Math.random() * 52);
+//             let tmp = deck[i];
+//             deck[i] = deck[j];
+//             deck[j] = tmp;
+//         }
+//         userDeck = [deck[0],deck[1],deck[4],deck[5],deck[6],deck[7],deck[8]]
+//         compDeck = [deck[2],deck[3],deck[4],deck[5],deck[6],deck[7],deck[8]]
+//     }
+//     for (let i=0; i<7; i++) {
+//         deck.shift()
+//     }
+// }
+
+// shuffle()
+// console.log(userDeck)
+// console.log(compDeck)
