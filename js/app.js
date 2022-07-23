@@ -28,7 +28,6 @@ shareDeck5.setAttribute("class","shareDeck5")
 compDeck1.setAttribute("class","compDeck1")
 compDeck2.setAttribute("class","compDeck2")
 
-// result div box
 
 // game start 
 class Poker {
@@ -97,6 +96,11 @@ class Poker {
     call() {
         if (this.money <= 0) {
             alert(`${this.name} don't have enought money, want to use cash shop?`)
+            if(deckContainer.children[8] === shareDeck4){
+                shareDeck4.remove()
+            }else if (deckContainer.children[9] !== shareDeck5){
+                shareDeck5.remove()
+            }
         }else {
             this.money -= 5;
             this.pot += 10;
@@ -106,7 +110,6 @@ class Poker {
         if(deckContainer.children[8] !== shareDeck4){
             deckContainer.appendChild(shareDeck4)
             shareDeck4.innerHTML = `${this.deck[7]}`
-
         }else if (deckContainer.children[9] !== shareDeck5){
             deckContainer.appendChild(shareDeck5)
             shareDeck5.innerHTML = `${this.deck[8]}`
@@ -114,6 +117,10 @@ class Poker {
         if (deckContainer.children[9] === shareDeck5) {
             compDeck1.innerHTML = `${this.deck[2]}`
             compDeck2.innerHTML = `${this.deck[3]}`
+            callBtn.remove()
+            raiseBtn.remove()
+            checkBtn.remove()
+            foldBtn.remove()
             this.open()
         }
     }
@@ -121,7 +128,20 @@ class Poker {
     raise() {
         if(this.money <= 0) {
             alert(`${this.name} don't have enought money, want to use cash shop?`)
-        }else {
+            if(deckContainer.children[8] === shareDeck4){
+                shareDeck4.remove()
+            }else if (deckContainer.children[9] !== shareDeck5){
+                shareDeck5.remove()
+            }
+        }else if (this.money === 5) {
+            alert(`${this.name} don't have enought money to raise`)
+            if(deckContainer.children[8] === shareDeck4){
+                shareDeck4.remove()
+            }else if (deckContainer.children[9] !== shareDeck5){
+                shareDeck5.remove()
+            }
+        }
+        else {
             this.money -= 10;
             this.pot += 20;
             userMoney.innerHTML = `$${this.money}`
@@ -137,6 +157,10 @@ class Poker {
         if (deckContainer.children[9] === shareDeck5) {
             compDeck1.innerHTML = `${this.deck[2]}`
             compDeck2.innerHTML = `${this.deck[3]}`
+            callBtn.remove()
+            raiseBtn.remove()
+            checkBtn.remove()
+            foldBtn.remove()
             this.open()
         }
     }
@@ -152,6 +176,10 @@ class Poker {
         if (deckContainer.children[9] === shareDeck5) {
             compDeck1.innerHTML = `${this.deck[2]}`
             compDeck2.innerHTML = `${this.deck[3]}`
+            callBtn.remove()
+            raiseBtn.remove()
+            checkBtn.remove()
+            foldBtn.remove()
             this.open()
         }
         
@@ -620,39 +648,3 @@ checkBtn.remove()
 foldBtn.remove()
 openBtn.remove()
 
-
-
-
-const rank = ["2","3","4","5","6","7","8","9","T","J","Q","K","A"]
-const suit = ["♥︎","♠","♣︎","♦︎"]
-rank.shift()
-let deck = []
-
-let userDeck;
-let compDeck;
-
-for (let i in rank) {
-    for (let j in suit) {
-        deck.push(rank[i] + suit[j])
-    }
-}
-
-function shuffle() {
-    if (deck.length > 8) {
-        for (let i in deck) {
-            let j = Math.floor(Math.random() * 52);
-            let tmp = deck[i];
-            deck[i] = deck[j];
-            deck[j] = tmp;
-        }
-        userDeck = [deck[0],deck[1],deck[4],deck[5],deck[6],deck[7],deck[8]]
-        compDeck = [deck[2],deck[3],deck[4],deck[5],deck[6],deck[7],deck[8]]
-    }
-    for (let i=0; i<7; i++) {
-        deck.shift()
-    }
-}
-
-shuffle()
-console.log(userDeck)
-console.log(compDeck)
