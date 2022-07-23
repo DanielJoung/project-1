@@ -1,7 +1,6 @@
 # project-1
 
-[texas holdem] (project1.png)
-<img src="project1.png">
+[texas holdem]<img src="project1.png">
 
 MVP Goals
 
