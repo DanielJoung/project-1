@@ -1,6 +1,6 @@
 # project-1
 
-[texas holdem](porject1.png)
+[texas holdem](https://media.git.generalassemb.ly/user/42802/files/f88d6f6a-f20f-42c9-afaa-91266f6b518f)
 MVP Goals
 
 - User will start with $100
@@ -8,3 +8,6 @@ MVP Goals
 - User can only bat $5 every turn.
 - User Goal is making $1000
 - If user got Royal Straight Flush , double up the batting money
+- If user don't have money, user can use cash shop.(It's on top of the right side)
+- After press Open Card button, it will start new game automatic 3seconds later
+- press start button to start game
