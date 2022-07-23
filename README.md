@@ -1,6 +1,6 @@
 # project-1
 
-[texas holdem](desktop/porject1.png)
+[texas holdem](porject1.png)
 MVP Goals
 
 - User will start with $100
