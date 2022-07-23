@@ -99,6 +99,7 @@ li a {
 
 .container {
     position: relative;
+    margin-left: 15px;
 }
 
 .playerDeck1 {
@@ -307,9 +308,9 @@ li a {
 }
 
 .score {
-    position:absolute;
-    left: 10px;
-    bottom: 210px;
+    position:relative;
+    left: 20px;
+    bottom: 400px;
     font-size: 32px;
     text-transform: capitalize;
 }
